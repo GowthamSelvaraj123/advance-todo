@@ -1,38 +1,256 @@
-.App {
-  text-align: center;
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #9333ea;
+    --background-color: #f1f5f9;
+    --header-bg: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    --sidebar-bg: #1e293b;
+    --sidebar-hover: var(--primary-color);
+    --sidebar-link-bg: #334155;
+    --content-bg: white;
+    --text-color: white;
+    --border-color: #ddd;
+    --hover-color: #c8e6c9;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, h4, h5, h6{
+    margin: 0px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    background: var(--background-color);
+    color: var(--text-color);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  thead {
+    background: var(--primary-color);
+    color: white;
+    text-align: left;
   }
-  to {
-    transform: rotate(360deg);
+  thead tr td {
+    padding: 12px 15px;
+    font-weight: 600;
   }
-}
+  tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease-in-out;
+  }
+  tbody tr:nth-child(even) {
+    background: #e1e1e1;
+  }
+  tbody tr:hover {
+    background: var(--hover-color);
+  }
+  td {
+    padding: 12px 15px;
+  }
+  tbody td
+  {
+    color: black;
+  }
+button, .btn {
+    display: inline-block;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px var(--shadow-color);
+    margin-bottom: 10px;
+    font-family: 'DM Sans';
+  }
+  button:hover, .btn:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+  }
+  button:active, .btn:active {
+    transform: scale(0.98);
+  }
+  button:disabled, .btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  a, .link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }  
+  a:hover, .link:hover {
+    color: white;
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+  }
+  .btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+  .btn-danger {
+    background: #dc2626;
+  }
+  .btn-danger:hover {
+    background: #b91c1c;
+  }
+  .btn-success {
+    background: #16a34a; 
+  }
+  .btn-success:hover {
+    background: #15803d;
+  }
+  .form-container {
+    background: var(--content-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  h2 {
+    text-align: center;
+    color: var(--primary-color);
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    display: none;
+  }
+  .form-group input, .form-group textarea {
+    padding: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+  }
+  .form-group textarea
+  {
+    resize: vertical;
+  }
+  .form-group .custom-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group .custom-select:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+  }
+  
+  .form-group .custom-select option {
+    font-size: 16px;
+    padding: 10px;
+    background-color: white;
+    color: #333;
+  }
+  .form-group .custom-select option:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  .form-group input:focus {
+    border-color: var(--primary-color);
+  }
+  .notes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    max-width: 400px;
+  }
+  
+  .create-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .note-item {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    height: 200px;
+    position: relative;
+  }
+  
+  .note-header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .edit-icon, .delete-icon {
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+  }
+  
+  .edit-icon {
+    color: #007bff;
+  }
+  
+  .delete-icon {
+    color: #dc3545;
+  }
+  
+  .note-content {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .empty-message {
+    text-align: center;
+    font-size: 16px;
+    color: #888;
+    padding: 10px;
+  }
+  
+  
+  @media (max-width: 600px) {
+    table {
+      font-size: 14px;
+    }
+    
+    td {
+      padding: 8px 10px;
+    }
+  }
+  
