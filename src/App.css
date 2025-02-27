@@ -64,7 +64,6 @@ button, .btn {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0px 4px 6px var(--shadow-color);
-    margin-bottom: 10px;
     font-family: 'DM Sans';
   }
   button:hover, .btn:hover {
@@ -139,7 +138,7 @@ button, .btn {
     margin-bottom: 5px;
     display: none;
   }
-  .form-group input, .form-group textarea {
+  .form-group input, .form-group textarea, input {
     padding: 10px;
     border: 2px solid var(--border-color);
     border-radius: 6px;
@@ -151,7 +150,7 @@ button, .btn {
   {
     resize: vertical;
   }
-  .form-group .custom-select {
+  .form-group .custom-select, select {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -242,7 +241,51 @@ button, .btn {
     color: #888;
     padding: 10px;
   }
-  
+  .custom-option-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    column-gap: 10px;
+}
+.custom-option-wrap * {
+  width: auto;
+}
+.login-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-section {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ebebeb;
+}
+.image-section {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.image-section img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
   
   @media (max-width: 600px) {
     table {
