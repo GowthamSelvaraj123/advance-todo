@@ -6,7 +6,7 @@ import { UserContext } from '../context/UserContext';
 export default function Register() {
   const navigate = useNavigate();
   const {users, setUsers} = useContext(UserContext);
-  const [formData, setFormData] = useState({usermail:"", userpassword:""});
+  const [formData, setFormData] = useState({name:"", usermail:"", userpassword:""});
   const handleChange = (event) =>
   {
     const {name, value} = event.target;
@@ -15,7 +15,7 @@ export default function Register() {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUsers(formData);
+    setUsers([...users, formData]);
     navigate('/');
   }
   return (
@@ -25,7 +25,11 @@ export default function Register() {
       </div>
       <div className="form-section">
         <form className="login-form" onSubmit={handleSubmit}>
-          <h2>Login</h2>
+          <h2>Register</h2>
+          <div className="form-group">
+            <label htmlFor="name">Email</label>
+            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="name" required />
+          </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input type="email" id="usermail" name="usermail" value={formData.usermail} onChange={handleChange} placeholder="Email" required />

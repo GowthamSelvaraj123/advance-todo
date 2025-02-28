@@ -10,21 +10,22 @@ import Dashboard from './page/Dashboard'
 import Login from './page/Login'
 import { UserContext } from './context/UserContext'
 import Register from './page/Register'
+import { LoginContext } from './context/LoginContext'
 export default function Router() {
-    const {users}= useContext(UserContext);
-    console.log(users);
+    const {login}= useContext(LoginContext);
+    console.log(login);
   return ( 
     <BrowserRouter>
        <Routes>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/register" element={<Register></Register>}></Route>
             <Route path="/" element={<Layout /> }>
-                <Route index element={users ? <Dashboard /> : <Navigate to="/login" />}></Route>
-                <Route path="todo" element={<Todo/>}></Route>
-                <Route path="todo/createtodo" element={<CreateTodo></CreateTodo>}></Route>
-                <Route path="todo/edittodo/:id" element={<EditTodo></EditTodo>}></Route>
-                <Route path="notes" element={<Notes></Notes>}></Route>
-                <Route path="notes/createnote" element={<CreateNotes />}></Route>
+                <Route index element={login ? <Dashboard /> : <Navigate to="/login" />}></Route>
+                <Route path="todo" element={login ? <Todo/> : <Navigate to="/login" />}></Route>
+                <Route path="todo/createtodo" element={login ? <CreateTodo></CreateTodo> : <Navigate to="/login" />}></Route>
+                <Route path="todo/edittodo/:id" element={login ? <EditTodo></EditTodo> : <Navigate to="/login" />}></Route>
+                <Route path="notes" element={login ?  <Notes></Notes> : <Navigate to="/login" />}></Route>
+                <Route path="notes/createnote" element={login ?  <CreateNotes /> : <Navigate to="/login" />}></Route>
                 <Route path="*" element={<h1>Not Found</h1>}></Route>
             </Route>
        </Routes>
